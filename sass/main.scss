@@ -1,0 +1,135 @@
+@import 'compass';
+@import 'normalize';
+@import 'animation';
+
+/*!
+|
+| main.scss
+|
+*/
+
+// == VARIABLES ==
+$small-size:  15em;
+$medium-size: 48em;
+$large-size:  64em;
+$max-size:    75em;
+
+$grid-breakpoints: (small 15em) (medium 48em) (large 64em);
+$grid-max-num: 6;
+
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
+
+@function cp($target, $container) {
+  @return calc-percent($target, $container);
+}
+
+%padding {
+	padding: 2%;
+	@include box-sizing(border-box);
+}
+
+// == STYLES ==
+html { // Style defaults
+	color: #ddd;
+	@include background-image(
+		linear-gradient(top,
+			#000,
+			#161616,
+			#262626,
+			#161616,
+			#000)
+	);
+}
+
+
+html { // Middle-aligned website layout -- <html><body></body></html>
+	width: 100%;
+	height: 100%;
+	display: table;
+
+	body {
+		display: table-cell;
+		vertical-align: middle;
+		@extend %padding;
+	}
+}
+
+
+.grid { // Grid component -- <ul class=grid><li></li></ul>
+	display: block;
+	width: auto;
+	max-width: $max-size;
+	margin: 0 auto;
+	@extend %padding;
+	list-style: none;
+	@include clearfix;
+	
+	.grid-item {
+		display: block;
+		width: auto;
+		position: relative;
+		float: left;
+		margin: 0;
+		@extend %padding;
+		vertical-align: top;
+	}
+
+	@each $breakpoint in $grid-breakpoints {
+		$name: nth($breakpoint, 1);
+    $size: nth($breakpoint, 2);
+
+		@media (min-width: $size) {
+			@for $i from 2 through $grid-max-num {
+				.#{$name}-#{$i}up { 
+					width: cp(1,$i); 
+				}
+			}
+		}
+	}
+}
+
+
+.icon-wrapper {
+	@include perspective(200px);
+	@include background-image(
+		radial-gradient(50% 90%, contain,
+		rgba(black,.5),
+		rgba(black,0))
+	);
+	background-position: bottom center;
+	.icon { // Icon component -- <a class=icon><img></a>
+		display: block;
+		@include transform-style(preserve-3d);
+		@include translateZ(.1px);
+		@include animation(fadeInUp 1s);
+		@include transition(.1s);
+		
+		img {
+			max-width: 100%;
+			vertical-align: top;
+			@include border-radius(17.54386%); // iOS radius size 10px/57px
+			@include transition(.1s ease-in-out);
+			outline: 1px solid transparent;
+		}
+		&:hover {
+			@include translateZ(10px);
+		}
+		&:active {
+			@include translateZ(-10px);
+		}
+	}
+}
+
+
+@include keyframes(fadeInUp) {
+  0% {
+    @include translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    @include translateY(0);
+    opacity: 1;
+  }
+}
