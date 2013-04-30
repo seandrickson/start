@@ -1,6 +1,6 @@
-@import 'compass';
-@import 'normalize';
-@import 'animation';
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "normalize";
 
 /*!
 |
@@ -9,26 +9,16 @@
 */
 
 // == VARIABLES ==
-$small-size:  15em;
-$medium-size: 48em;
-$large-size:  64em;
-$max-size:    75em;
+$grid-columns: 6;
 
-$grid-breakpoints: (small 15em) (medium 48em) (large 64em);
-$grid-max-num: 6;
+$s-size:  15em;
+$m-size:  48em;
+$l-size:  64em;
+$xl-size: 75em;
 
-@function calc-percent($target, $container) {
-  @return ($target / $container) * 100%;
-}
+$s-media: new-breakpoint(max-width $m-size 2);
+$m-media: new-breakpoint(min-width $m-size max-width $l-size 3);
 
-@function cp($target, $container) {
-  @return calc-percent($target, $container);
-}
-
-%padding {
-	padding: 2%;
-	@include box-sizing(border-box);
-}
 
 // == STYLES ==
 html { // Style defaults
@@ -45,47 +35,32 @@ html { // Style defaults
 
 
 html { // Middle-aligned website layout -- <html><body></body></html>
+	display: table;
 	width: 100%;
 	height: 100%;
-	display: table;
 
 	body {
 		display: table-cell;
 		vertical-align: middle;
-		@extend %padding;
 	}
 }
 
 
 .grid { // Grid component -- <ul class=grid><li></li></ul>
-	display: block;
-	width: auto;
-	max-width: $max-size;
-	margin: 0 auto;
-	@extend %padding;
-	list-style: none;
-	@include clearfix;
-	
+	@include outer-container;
+	@include pad;
+
 	.grid-item {
-		display: block;
-		width: auto;
-		position: relative;
-		float: left;
-		margin: 0;
-		@extend %padding;
-		vertical-align: top;
-	}
-
-	@each $breakpoint in $grid-breakpoints {
-		$name: nth($breakpoint, 1);
-    $size: nth($breakpoint, 2);
-
-		@media (min-width: $size) {
-			@for $i from 2 through $grid-max-num {
-				.#{$name}-#{$i}up { 
-					width: cp(1,$i); 
-				}
-			}
+		@include span-columns(1);
+		@include pad(default 0);
+		
+		@include media($s-media) {
+			@include omega(2n);
+			@include span-columns(1);
+		}
+		@include media($m-media) {
+			@include omega(3n);
+			@include span-columns(1);
 		}
 	}
 }
@@ -93,43 +68,38 @@ html { // Middle-aligned website layout -- <html><body></body></html>
 
 .icon-wrapper {
 	@include perspective(200px);
-	@include background-image(
-		radial-gradient(50% 90%, contain,
-		rgba(black,.5),
-		rgba(black,0))
-	);
-	background-position: bottom center;
+
 	.icon { // Icon component -- <a class=icon><img></a>
 		display: block;
 		@include transform-style(preserve-3d);
-		@include translateZ(.1px);
-		@include animation(fadeInUp 1s);
+		@include transform(translateZ(.01px));
+		@include animation(fadeInUp 1s $ease-in-out-back);
 		@include transition(.1s);
 		
 		img {
+			display: block;
 			max-width: 100%;
-			vertical-align: top;
-			@include border-radius(17.54386%); // iOS radius size 10px/57px
-			@include transition(.1s ease-in-out);
+			margin: 0 auto;
+			border-radius: 17.54386%; // iOS radius size 10px/57px
 			outline: 1px solid transparent;
 		}
 		&:hover {
-			@include translateZ(10px);
+			@include transform(translateZ(10px));
 		}
 		&:active {
-			@include translateZ(-10px);
+			@include transform(translateZ(-10px));
 		}
 	}
 }
 
 
 @include keyframes(fadeInUp) {
-  0% {
-    @include translateY(-50px);
-    opacity: 0;
-  }
-  100% {
-    @include translateY(0);
-    opacity: 1;
-  }
+	0% {
+		@include transform(translateY(-50px));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateY(0));
+		opacity: 1;
+	}
 }
