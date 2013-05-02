@@ -73,8 +73,8 @@ html { // Middle-aligned website layout -- <html><body></body></html>
 		display: block;
 		@include transform-style(preserve-3d);
 		@include transform(translateZ(.01px));
-		@include animation(fadeInUp 1s $ease-in-out-back);
-		@include transition(.1s);
+		@include animation(fadeInDown 1s $ease-in-out-back);
+		@include transition(transition-property-name(transform, webkit) .1s ease-in-out .02s);
 		
 		img {
 			display: block;
@@ -93,7 +93,7 @@ html { // Middle-aligned website layout -- <html><body></body></html>
 }
 
 
-@include keyframes(fadeInUp) {
+@include keyframes(fadeInDown) {
 	0% {
 		@include transform(translateY(-50px));
 		opacity: 0;
