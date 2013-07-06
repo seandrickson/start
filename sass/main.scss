@@ -125,12 +125,12 @@ body { padding: 10% }
 			outline: 1px solid transparent; // Firefox rendering fix
 		}
 	}
-		.icon__item--1of6 { @include animation-delay(   0s ); }
-		.icon__item--2of6 { @include animation-delay( .15s ); }
-		.icon__item--3of6 { @include animation-delay(  .3s ); }
-		.icon__item--4of6 { @include animation-delay( .45s ); }
-		.icon__item--5of6 { @include animation-delay(  .6s ); }
-		.icon__item--6of6 { @include animation-delay( .75s ); }
+		// .icon__item--1of6 { @include animation-delay(   0s ); }
+		// .icon__item--2of6 { @include animation-delay( .15s ); }
+		// .icon__item--3of6 { @include animation-delay(  .3s ); }
+		// .icon__item--4of6 { @include animation-delay( .45s ); }
+		// .icon__item--5of6 { @include animation-delay(  .6s ); }
+		// .icon__item--6of6 { @include animation-delay( .75s ); }
 
 
 //
