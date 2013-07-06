@@ -1,105 +1,143 @@
-@import "bourbon/bourbon";
-@import "neat/neat";
-@import "normalize";
+@import "bourbon";
 
 /*!
-|
 | main.scss
+| ----------
+| https://github.com/seandrickson/start/blob/gh-pages/sass/main.scss
 |
 */
 
-// == VARIABLES ==
-$grid-columns: 6;
 
-$s-size:  15em;
-$m-size:  48em;
-$l-size:  64em;
-$xl-size: 75em;
+//
+// Style defaults
+//////////
 
-$s-media: new-breakpoint(max-width $m-size 2);
-$m-media: new-breakpoint(min-width $m-size max-width $l-size 3);
-
-
-// == STYLES ==
-html { // Style defaults
+html {
 	color: #ddd;
+	background-color: #000;
 	@include background-image(
-		linear-gradient(top,
-			#000,
-			#161616,
-			#262626,
-			#161616,
-			#000)
+		linear-gradient( top,
+			rgba( white, 0 ),
+			rgba( white, .15 ),
+			rgba( white, .18 ),
+			rgba( white, .15 ),
+			rgba( white, 0 )
+		)
 	);
 }
 
 
-html { // Middle-aligned website layout -- <html><body></body></html>
+//
+// Middle-aligned website layout -- <html><body></body></html>
+//////////
+
+html { 
 	display: table;
 	width: 100%;
 	height: 100%;
-
+}
 	body {
 		display: table-cell;
 		vertical-align: middle;
 	}
+
+
+
+//
+// Grid component -- <ul class=grid><li></li></ul>
+//////////
+
+// Column + Gutter = 100%
+$column: 80%;  // Column %
+$gutter: 20%;  // Gutter %
+
+$num-columns: 2;
+
+$s-size:  32em;
+$m-size:  56em;
+$l-size:  80em;
+
+@function grid-math( $column: 50%, $num-columns: 2 ) {
+	@return $column / $num-columns;
 }
 
+// Set padding from edge of browser
+body { padding: 10% }
 
-.grid { // Grid component -- <ul class=grid><li></li></ul>
-	@include outer-container;
-	@include pad;
+.grid__wrapper { 
+	@include clearfix;
+	margin: 0 auto;
+	max-width: $l-size;
+}
+	.grid__item {
+		float: left;
 
-	.grid-item {
-		@include span-columns(1);
-		@include pad(default 0);
+		// small size
+		width: grid-math( $column );
+		padding: grid-math( $gutter ) / 2;
 		
-		@include media($s-media) {
-			@include omega(2n);
-			@include span-columns(1);
+		//medium size
+		@media screen and (min-width: $s-size) {
+			width: grid-math( $column, 3 );
+			padding: grid-math( $gutter, 3 ) / 2;
 		}
-		@include media($m-media) {
-			@include omega(3n);
-			@include span-columns(1);
+
+		//large size
+		@media screen and (min-width: $m-size) {
+			width: grid-math( $column, 6 );
+			padding: grid-math( $gutter, 6 ) / 2;
 		}
 	}
+
+
+
+//
+// Icon component -- <a class=icon><img></a>
+//////////
+
+.icon__wrapper {
+	@include perspective( 200px );
 }
-
-
-.icon-wrapper {
-	@include perspective(200px);
-
-	.icon { // Icon component -- <a class=icon><img></a>
+	.icon__item {
+		position: relative;
 		display: block;
-		@include transform-style(preserve-3d);
-		@include transform(translateZ(.01px));
-		@include animation(fadeInDown 1s $ease-in-out-back);
-		@include transition(transition-property-name(transform, webkit) .1s ease-in-out .02s);
+
+		@include transform-style( preserve-3d );
+		@include transform( translateZ(.01px) );
+		@include transition-property( transform );
+		@include transition-duration( .1s );
+		@include transition-timing-function( ease-in-out );
+		@include transition-delay( .015s );
+
+		@include animation( fadeInDown 1s $ease-in-out-back );
 		
+		&:hover {
+			@include transform( translateZ(10px) );
+		}
+		&:active {
+			@include transform( translateZ(-10px) );
+		}
 		img {
 			display: block;
 			max-width: 100%;
 			margin: 0 auto;
-			border-radius: 17.54386%; // iOS radius size 10px/57px
-			outline: 1px solid transparent;
-		}
-		&:hover {
-			@include transform(translateZ(10px));
-		}
-		&:active {
-			@include transform(translateZ(-10px));
+			border-radius: (10px / 57px) * 100%; // iOS radius size
+			outline: 1px solid transparent; // Firefox rendering fix
 		}
 	}
-}
+		.icon__item--1of6 { @include animation-delay(   0s ); }
+		.icon__item--2of6 { @include animation-delay( .15s ); }
+		.icon__item--3of6 { @include animation-delay(  .3s ); }
+		.icon__item--4of6 { @include animation-delay( .45s ); }
+		.icon__item--5of6 { @include animation-delay(  .6s ); }
+		.icon__item--6of6 { @include animation-delay( .75s ); }
 
+
+//
+// Animation keyframes
+//////////
 
 @include keyframes(fadeInDown) {
-	0% {
-		@include transform(translateY(-50px));
-		opacity: 0;
-	}
-	100% {
-		@include transform(translateY(0));
-		opacity: 1;
-	}
+		0% { top: -50px; opacity: 0; }
+	100% { top:   0px; opacity: 1; }
 }
