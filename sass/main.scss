@@ -13,16 +13,13 @@
 //////////
 
 html {
-	color: #ddd;
-	background-color: #000;
-	@include background-image(
-		linear-gradient( top,
-			rgba( white,   0 ),
-			rgba( white, .11 ),
-			rgba( white, .18 ),
-			rgba( white, .11 ),
-			rgba( white,   0 )
-		)
+	color: #eee;
+	@include linear-gradient(
+		black,
+		lighten( black, 11% ),
+		lighten( black, 18% ),
+		lighten( black, 11% ),
+		black
 	);
 }
 
@@ -119,7 +116,6 @@ $l-size:  80em;
 		img {
 			display: block;
 			max-width: 100%;
-			margin: 0 auto;
 			border-radius: (10px / 57px) * 100%; // iOS radius size
 			outline: 1px solid transparent; // Firefox rendering fix
 		}
