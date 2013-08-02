@@ -12,38 +12,55 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div class="grid__wrapper">
+    <div id="icons" class="grid__wrapper">
       <div class="grid__item icon__wrapper">
-        <a class="icon__item icon__item--1of6" href="https://twitter.com/">
+        <a class="icon__item" href="https://twitter.com/">
           <img alt="Twitter" src="img/twitter.jpg">
         </a>
       </div>
       <div class="grid__item icon__wrapper">
-        <a class="icon__item icon__item--2of6" href="https://www.facebook.com/">
+        <a class="icon__item" href="https://www.facebook.com/">
           <img alt="Facebook" src="img/facebook.jpg">
         </a>
       </div>
       <div class="grid__item icon__wrapper">
-        <a class="icon__item icon__item--3of6" href="http://dribbble.com/">
+        <a class="icon__item" href="http://dribbble.com/">
           <img alt="Dribbble" src="img/dribbble.jpg">
         </a>
       </div>
       <div class="grid__item icon__wrapper">
-        <a class="icon__item icon__item--4of6" href="http://pinterest.com/">
+        <a class="icon__item" href="http://pinterest.com/">
           <img alt="Pinterest" src="img/pinterest.jpg">
         </a>
       </div>
       <div class="grid__item icon__wrapper">
-        <a class="icon__item icon__item--5of6" href="http://www.youtube.com/">
+        <a class="icon__item" href="http://www.youtube.com/">
           <img alt="YouTube" src="img/youtube.jpg">
         </a>
       </div>
       <div class="grid__item icon__wrapper">
-        <a class="icon__item icon__item--6of6" href="https://mail.google.com/mail/">
+        <a class="icon__item" href="https://mail.google.com/mail/">
           <img alt="Gmail" src="img/gmail.jpg">
         </a>
       </div>
     </div>
     <script src="js/respond.min.js"></script>
+    <script>
+      (function(){
+        var icons = document.getElementById('icons').children,
+            anim = ' icon__wrapper--in',
+            i;
+
+        for (i = 0; i < icons.length; i++) {
+          var go = icons[i];
+
+          (function(i, go, anim){
+            setTimeout(function(){
+              go.className += anim;
+            }, i * 200);
+          }(i, go, anim));
+        }
+      }());
+    </script>
   </body>
 </html>

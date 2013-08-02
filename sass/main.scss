@@ -92,10 +92,16 @@ $l-size:  80em;
 //////////
 
 .icon__wrapper {
+	position: relative;
+	opacity: 0;
+
 	@include perspective( 200px );
 }
+	.icon__wrapper--in {
+		@include animation( fadeInDown 1s $ease-in-out-back forwards );
+	}
+
 	.icon__item {
-		position: relative;
 		display: block;
 
 		@include transform-style( preserve-3d );
@@ -104,8 +110,6 @@ $l-size:  80em;
 		@include transition-duration( .1s );
 		@include transition-timing-function( ease-in-out );
 		@include transition-delay( .015s );
-
-		@include animation( fadeInDown 1s $ease-in-out-back backwards );
 
 		&:hover {
 			@include transform( translateZ(10px) );
@@ -120,12 +124,7 @@ $l-size:  80em;
 			outline: 1px solid transparent; // Firefox rendering fix
 		}
 	}
-		.icon__item--1of6 { @include animation-delay(   0s ); }
-		.icon__item--2of6 { @include animation-delay( .15s ); }
-		.icon__item--3of6 { @include animation-delay(  .3s ); }
-		.icon__item--4of6 { @include animation-delay( .45s ); }
-		.icon__item--5of6 { @include animation-delay(  .6s ); }
-		.icon__item--6of6 { @include animation-delay( .75s ); }
+
 
 
 //
