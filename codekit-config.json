@@ -2,6 +2,26 @@
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
   "creatorBuild" : "8317",
   "files" : {
+    "\/_\/main.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/_\/main.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
+    "\/_\/load.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/_\/load.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/_\/load.min.js",
+      "fileType" : 64
+    },
     "\/img\/pinterest.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -12,6 +32,62 @@
       "outputAbbreviatedPath" : "\/img\/pinterest.jpg",
       "initialSize" : 10304,
       "fileType" : 4096
+    },
+    "\/index.jade" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/index.jade",
+      "outputStyle" : 0,
+      "compileDebug" : 1,
+      "outputAbbreviatedPath" : "\/index.html",
+      "fileType" : 512
+    },
+    "\/img\/facebook.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/img\/facebook.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/img\/facebook.jpg",
+      "initialSize" : 10344,
+      "fileType" : 4096
+    },
+    "\/_\/load.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/_\/load.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/_\/load.min.min.js",
+      "fileType" : 64
+    },
+    "\/_\/respond.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/_\/respond.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/_\/respond.min.min.js",
+      "fileType" : 64
+    },
+    "\/_\/main.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/_\/main.scss",
+      "outputStyle" : 3,
+      "shouldRunBless" : 1,
+      "outputAbbreviatedPath" : "\/css\/main.css",
+      "fileType" : 4,
+      "debugStyle" : 0
     },
     "\/img\/twitter.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -24,17 +100,6 @@
       "initialSize" : 13874,
       "fileType" : 4096
     },
-    "\/js\/respond.min.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/respond.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/respond.min.min.js",
-      "fileType" : 64
-    },
     "\/img\/gmail.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -45,38 +110,6 @@
       "outputAbbreviatedPath" : "\/img\/gmail.jpg",
       "initialSize" : 18261,
       "fileType" : 4096
-    },
-    "\/css\/main.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/main.css",
-      "outputAbbreviatedPath" : "\/No Output Path",
-      "fileType" : 16
-    },
-    "\/img\/youtube.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/img\/youtube.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/img\/youtube.jpg",
-      "initialSize" : 23112,
-      "fileType" : 4096
-    },
-    "\/sass\/main.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/sass\/main.scss",
-      "outputStyle" : 3,
-      "shouldRunBless" : 1,
-      "outputAbbreviatedPath" : "\/css\/main.css",
-      "fileType" : 4,
-      "debugStyle" : 0
     },
     "\/img\/dribbble.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -89,24 +122,15 @@
       "initialSize" : 25862,
       "fileType" : 4096
     },
-    "\/index.html" : {
+    "\/img\/youtube.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/index.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/img\/facebook.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/img\/facebook.jpg",
+      "inputAbbreviatedPath" : "\/img\/youtube.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/img\/facebook.jpg",
-      "initialSize" : 10344,
+      "outputAbbreviatedPath" : "\/img\/youtube.jpg",
+      "initialSize" : 23112,
       "fileType" : 4096
     }
   },
