@@ -1,11 +1,6 @@
 @import "bourbon";
 
-/*!
-| main.scss
-| ----------
-| https://github.com/seandrickson/start/blob/gh-pages/sass/main.scss
-|
-*/
+/*! main.scss | https://github.com/seandrickson/start/blob/gh-pages/css/main.scss */
 
 
 
@@ -31,6 +26,7 @@ html {
 	body {
 		display: table-cell;
 		vertical-align: middle;
+		padding: 20%;
 	}
 
 
@@ -51,6 +47,10 @@ $s-size:  32em;
 $m-size:  56em;
 $l-size:  80em;
 
+@mixin mq($size) {
+	@media (min-width: $size) { @content; }
+}
+
 @function grid-math( $column-width: 50%, $columns: 2 ) {
 	@return $column-width / $columns;
 }
@@ -59,27 +59,26 @@ $l-size:  80em;
 .grid__wrapper {
 	@include clearfix;
 	margin: 0 auto;
-	padding: 10%;
 	max-width: $l-size;
 }
 	.grid__item {
 		float: left;
 
-		// small size
+		// Small size
 		width:   grid-math( $column-width, $s-columns );
 		padding: grid-math( $gutter-width, $s-columns ) / 2;
 
-		//medium size
-		@media screen and (min-width: $s-size) {
+		// Medium size
+		@include mq($s-size) {
 			width:   grid-math( $column-width, $m-columns );
 			padding: grid-math( $gutter-width, $m-columns ) / 2;
 		}
 
-		//large size
-		@media screen and (min-width: $m-size) {
-			width:   grid-math( $column-width, $l-columns );
-			padding: grid-math( $gutter-width, $l-columns ) / 2;
-		}
+		// Large size
+		// @include mq($m-size) {
+		// 	width:   grid-math( $column-width, $l-columns );
+		// 	padding: grid-math( $gutter-width, $l-columns ) / 2;
+		// }
 	}
 
 
@@ -99,7 +98,6 @@ $l-size:  80em;
 	.icon__item {
 		display: block;
 
-		@include transform-style( preserve-3d );
 		@include transform( translateZ(.01px) );
 		@include transition-property( transform );
 		@include transition-duration( .1s );
@@ -114,8 +112,8 @@ $l-size:  80em;
 		}
 		img {
 			display: block;
-			margin: 0 auto;
 			max-width: 100%;
+			margin: 0 auto;
 			border-radius: (10px / 57px) * 100%; // iOS radius size
 			outline: 1px solid transparent; // Firefox rendering fix
 		}
