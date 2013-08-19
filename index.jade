@@ -10,18 +10,20 @@ html(lang='en-US', manifest='sean.appcache')
 
     include css/main.css
   body
-    #icons.grid__wrapper
-      .grid__item.icon__wrapper(style='display: none;')
-        a.icon__item(href='https://www.facebook.com/')
-          img(alt='Facebook', src='img/facebook.jpg')
-      .grid__item.icon__wrapper(style='display: none;')
-        a.icon__item(href='http://pinterest.com/')
-          img(alt='Pinterest', src='img/pinterest.jpg')
-      .grid__item.icon__wrapper(style='display: none;')
-        a.icon__item(href='http://www.youtube.com/')
-          img(alt='YouTube', src='img/youtube.jpg')
-      .grid__item.icon__wrapper(style='display: none;')
-        a.icon__item(href='https://mail.google.com/mail/')
-          img(alt='Gmail', src='img/gmail.jpg')
+    .middle__wrapper
+      .middle__item
+        #icons.grid__wrapper
+          .grid__item.icon__wrapper(style='display:none')
+            a.icon__item(href='https://www.facebook.com/')
+              img(alt='Facebook', src='img/facebook.jpg')
+          .grid__item.icon__wrapper(style='display:none')
+            a.icon__item(href='http://pinterest.com/')
+              img(alt='Pinterest', src='img/pinterest.jpg')
+          .grid__item.icon__wrapper(style='display:none')
+            a.icon__item(href='http://www.youtube.com/')
+              img(alt='YouTube', src='img/youtube.jpg')
+          .grid__item.icon__wrapper(style='display:none')
+            a.icon__item(href='http://www.iheart.com/')
+              img(alt='iHeartRadio', src='img/iheart.jpg')
     include js/respond.min.js
     include js/load.min.js
