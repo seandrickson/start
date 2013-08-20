@@ -76,17 +76,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/js\/load.min.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/load.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/_\/load.min.min.js",
-      "fileType" : 64
-    },
     "\/index.jade" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -108,6 +97,17 @@
       "outputAbbreviatedPath" : "\/img\/youtube.jpg",
       "initialSize" : 23112,
       "fileType" : 4096
+    },
+    "\/js\/load.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/load.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/_\/load.min.min.js",
+      "fileType" : 64
     },
     "\/img\/facebook.jpg" : {
       "ignoreWasSetByUser" : 0,

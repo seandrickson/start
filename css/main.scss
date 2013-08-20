@@ -113,9 +113,17 @@ $l-size:  80em;
 
 		&:hover {
 			@include transform( translateZ(10px) );
+
+			img {
+				box-shadow: 0 1em 2.5em -.2em #000;
+			}
 		}
 		&:active {
 			@include transform( translateZ(-10px) );
+
+			img {
+				box-shadow: 0 1em 1.5em -.2em #000;
+			}
 		}
 		img {
 			display: block;
@@ -123,6 +131,7 @@ $l-size:  80em;
 			margin: 0 auto;
 			border-radius: (10px / 57px) * 100%; // iOS radius size
 			outline: 1px solid transparent; // Firefox rendering fix
+			box-shadow: 0 1em 2em -.2em #000;
 		}
 	}
 
