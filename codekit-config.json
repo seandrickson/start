@@ -61,7 +61,7 @@
     "\/css\/main.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
-      "hidden" : 0,
+      "hidden" : 1,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/css\/main.css",
       "outputAbbreviatedPath" : "No Output Path",
@@ -76,17 +76,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/index.jade" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/index.jade",
-      "outputStyle" : 1,
-      "compileDebug" : 0,
-      "outputAbbreviatedPath" : "\/index.html",
-      "fileType" : 512
-    },
     "\/img\/youtube.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -97,6 +86,17 @@
       "outputAbbreviatedPath" : "\/img\/youtube.jpg",
       "initialSize" : 23112,
       "fileType" : 4096
+    },
+    "\/index.jade" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/index.jade",
+      "outputStyle" : 1,
+      "compileDebug" : 0,
+      "outputAbbreviatedPath" : "\/index.html",
+      "fileType" : 512
     },
     "\/js\/load.min.js" : {
       "ignoreWasSetByUser" : 0,
