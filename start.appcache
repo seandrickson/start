@@ -1,0 +1,12 @@
+CACHE MANIFEST
+# 2013-08-28
+
+CACHE:
+css/main.css
+js/jquery-2.0.3.min.js
+js/jquery-2.0.3.min.map
+js/main.min.js
+js/icons.json
+
+NETWORK:
+*
