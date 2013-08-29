@@ -9,23 +9,25 @@
 //////////
 
 html {
-	display: table;
-	height: 100%;
+  display: table; // OMG!! Not tables!
+  height: 100%;
+  margin: 0 auto;
 }
-	body {
-		display: table-cell;
-		vertical-align: middle;
-		padding: 20%;
-		color: #EEE;
-		background-color: #000;
-		@include background-image( linear-gradient(
-			#000,
-			lighten( #000, 11% ),
-			lighten( #000, 18% ),
-			lighten( #000, 11% ),
-			#000
-		) );
-	}
+
+  body {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 20%;
+    color: #EEE;
+    background-color: #000;
+    @include background-image( linear-gradient(
+      #000,
+      lighten( #000, 11% ),
+      lighten( #000, 18% ),
+      lighten( #000, 11% ),
+      #000
+    ) );
+  }
 
 
 
@@ -37,48 +39,59 @@ html {
 $column-width: 80%;  // Column %
 $gutter-width: 20%;  // Gutter %
 
-$s-columns: 2;
-$m-columns: 4;
-$l-columns: 4;
+$s-size: 32em;
+$m-size: 56em;
+$l-size: 80em;
 
-$s-size:  32em;
-$m-size:  56em;
-$l-size:  80em;
-
+// Do math based on the grid (2 columns is /2, 3 columns is /3, etc.)
 @function grid-math( $column-width: 50%, $columns: 2 ) {
-	@return $column-width / $columns;
+  @return $column-width / $columns;
 }
 
+// Trying not to repeat myself
 @mixin grid($columns: 2) {
-	width:   grid-math( $column-width, $columns );
-	padding: grid-math( $gutter-width, $columns ) / 2;
+  width:   grid-math( $column-width, $columns );
+  padding: grid-math( $gutter-width, $columns ) / 2; // Divide by two, for padding on both sides
 }
 
+// Standard media query mixin
 @mixin mq($size) {
-	@media (min-width: $size) { @content; }
+  @media (min-width: $size) { @content; }
+}
+
+// Run through hand-picked column values based on the amount of icons
+@mixin icon-math($columns: 2) {
+  $i: 1;
+  @each $col in $columns {
+    &[data-icons="#{$i}"] {
+      @include grid( $col );
+    }
+    $i: $i + 1;
+  }
 }
 
 // Set padding from edge of browser
 .grid__wrapper {
-	margin: 0 auto;
-	max-width: $l-size;
+  margin: 0 auto;
+  max-width: $l-size;
 }
-	.grid__item {
-		float: left;
 
-		// Small size
-		@include grid( $s-columns );
+  .grid__item {
+    float: left;
 
-		// Medium size
-		@include mq($s-size) {
-			@include grid( $m-columns );
-		}
+    // Small size (no media query)
+    @include grid;
 
-		// Large size
-		// @include mq($m-size) {
-		//   @include grid( $l-columns );
-		// }
-	}
+    // Medium size
+    @include mq($m-size) {
+      @include icon-math( (1,2,3,2,3,3,3,3,3,3,3,3,3,3,3,3) );
+    }
+
+    // Large size
+    @include mq($l-size) {
+      @include icon-math( (1,2,3,4,5,3,4,4,3,5,4,4,5,5,5,4) );
+    }
+  }
 
 
 
@@ -87,32 +100,35 @@ $l-size:  80em;
 //////////
 
 .icon__wrapper {
-	position: relative;
-	@include perspective( 100px );
-	@include backface-visibility( hidden );
-	@include animation( fadeInDown 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) );
+  position: relative;
+  @include perspective( 100px );
+  @include backface-visibility( hidden );
+  @include animation( fadeInDown 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) );
+  // Beizer value is ease-in-out-back: http://easings.net/#easeInOutBack
 }
 
-	.icon__item {
-		display: block;
-		@include transform( translateZ(-7px) );
-		@include transition( .1s ease-in-out .015s );
+  .icon__item {
+    display: block;
+    @include transform( translateZ(-7px) );
+    @include transition( .1s ease-in-out .015s );
 
-		&:hover {
-			@include transform( translateZ(0) );
-			img { box-shadow: 0 1em 2.5em -.2em #000; }
-		}
-		&:active {
-			@include transform( translateZ(-14px) );
-			img { box-shadow: 0 1em 1.5em -.2em #000; }
-		}
-		img {
-			max-width: 100%;
-			border-radius: (10px / 57px) * 100%; // 10px radius at 57x57px icon
-			outline: 1px solid transparent; // Firefox rendering fix
-			box-shadow: 0 1em 2em -.2em #000;
-		}
-	}
+    &:hover {
+      @include transform( translateZ(0) );
+      img { box-shadow: 0 1em 2.5em -.2em #000; }
+    }
+
+    &:active {
+      @include transform( translateZ(-14px) );
+      img { box-shadow: 0 1em 1.5em -.2em #000; }
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: (10px / 57px) * 100%; // 10px radius at 57x57px icon
+      outline: 1px solid transparent; // Firefox rendering fix
+      box-shadow: 0 1em 2em -.2em #000;
+    }
+  }
 
 
 
@@ -121,6 +137,6 @@ $l-size:  80em;
 //////////
 
 @include keyframes( fadeInDown ){
-		0% { top: -50px; opacity: 0; }
-	100% { top:     0; opacity: 1; }
+    0% { top: -50px; opacity: 0; }
+  100% { top:     0; opacity: 1; }
 }

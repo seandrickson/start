@@ -15,7 +15,7 @@
     })
     .done(function(data){
       $.each(data.results, function(i){
-        $('<div/>').addClass('grid__item icon__wrapper').hide()
+        $('<div/>').attr('data-icons', data.resultCount).addClass('grid__item icon__wrapper').hide()
           .append('<a href="'+icons[i].url+'" class="icon__item">'+
             '<img alt="'+icons[i].name+'" src="'+data.results[i].artworkUrl100+'"></a>')
           .appendTo('#icons')
