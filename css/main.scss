@@ -5,34 +5,7 @@
 
 
 //
-// Middle-aligned website layout -- <html><body></body></html>
-//////////
-
-html {
-  display: table; // OMG!! Not tables!
-  height: 100%;
-  margin: 0 auto;
-}
-
-  body {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 0 20%;
-    color: #EEE;
-    background-color: #000;
-    @include background-image( linear-gradient(
-      #000,
-      lighten( #000, 11% ),
-      lighten( #000, 18% ),
-      lighten( #000, 11% ),
-      #000
-    ) );
-  }
-
-
-
-//
-// Grid component -- <ul class=grid><li></li></ul>
+// VARIABLES
 //////////
 
 // Column + Gutter = 100%
@@ -43,10 +16,22 @@ $s-size: 32em;
 $m-size: 56em;
 $l-size: 80em;
 
+
+
+//
+// FUNCTIONS
+//////////
+
 // Do math based on the grid (2 columns is /2, 3 columns is /3, etc.)
 @function grid-math( $column-width: 50%, $columns: 2 ) {
   @return $column-width / $columns;
 }
+
+
+
+//
+// MIXINS
+//////////
 
 // Trying not to repeat myself
 @mixin grid($columns: 2) {
@@ -70,10 +55,63 @@ $l-size: 80em;
   }
 }
 
+
+
+//
+// SILENT CLASSES
+//////////
+
+%clearfix {
+  @include has-layout;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+
+//
+// Middle-aligned website layout -- <html><body></body></html>
+//////////
+
+html {
+  display: table; // OMG!! Not tables!
+  height: 100%;
+  margin: 0 auto;
+}
+
+  body {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 2% 20%;
+    color: #EEE;
+    background-color: #000;
+    @include background-image( linear-gradient(
+      #000,
+      lighten( #000, 11% ),
+      lighten( #000, 18% ),
+      lighten( #000, 11% ),
+      #000
+    ) );
+  }
+
+
+
+//
+// Grid component -- <ul class=grid><li></li></ul>
+//////////
+
 // Set padding from edge of browser
 .grid__wrapper {
   margin: 0 auto;
   max-width: $l-size;
+  @extend clearfix;
 }
 
   .grid__item {
@@ -84,7 +122,7 @@ $l-size: 80em;
 
     // Medium size
     @include mq($m-size) {
-      @include icon-math( (1,2,3,2,3,3,3,3,3,3,3,3,3,3,3,3) );
+      @include icon-math( (1,2,3,4,3,3,4,4,3,4,4,4,4,4,4,4) );
     }
 
     // Large size
@@ -116,9 +154,13 @@ $l-size: 80em;
       @include transform( translateZ(0) );
       img { box-shadow: 0 1em 2.5em -.2em #000; }
     }
-
+    &:focus {
+      outline: none;
+      @include transform( translateZ(0) );
+      img { box-shadow: 0 0 2.5em -.2em #FFF; }
+    }
     &:active {
-      @include transform( translateZ(-14px) );
+      @include transform( translateZ(-10px) );
       img { box-shadow: 0 1em 1.5em -.2em #000; }
     }
 
