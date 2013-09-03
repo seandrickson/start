@@ -58,25 +58,6 @@ $l-size: 80em;
 
 
 //
-// SILENT CLASSES
-//////////
-
-%clearfix {
-  @include has-layout;
-
-  &:before,
-  &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-
-
-//
 // Middle-aligned website layout -- <html><body></body></html>
 //////////
 
@@ -111,7 +92,7 @@ html {
 .grid__wrapper {
   margin: 0 auto;
   max-width: $l-size;
-  @extend clearfix;
+  @include pie-clearfix;
 }
 
   .grid__item {
