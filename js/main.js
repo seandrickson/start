@@ -15,11 +15,16 @@
     })
     .done(function(data){
       $.each(data.results, function(i){
-        $('<div/>').attr('data-icons', data.resultCount).addClass('grid__item icon__wrapper').hide()
-          .append('<a href="'+icons[i].url+'" class="icon__item">'+
-            '<img alt="'+icons[i].name+'" src="'+data.results[i].artworkUrl100+'"></a>')
+        $('<div/>')
+          .attr('data-icons', data.resultCount)
+          .addClass('grid__item icon__wrapper')
+          .hide()
+          .append('<a href="' + icons[i].url + '" class="icon__item">' +
+                  '<img alt="' + icons[i].name + '" src="' + data.results[i].artworkUrl100 + '">' +
+                  '</a>')
           .appendTo('#icons')
-          .delay(200 * i).fadeIn();
+          .delay(200 * i)
+          .fadeIn();
       });
     });
 
