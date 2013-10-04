@@ -4,9 +4,9 @@
 
 
 
-//
-// VARIABLES
-//////////
+///////////////
+// VARIABLES //
+///////////////
 
 // Column + Gutter = 100%
 $column-width: 80%;  // Column %
@@ -18,9 +18,9 @@ $l-size: 80em;
 
 
 
-//
-// FUNCTIONS
-//////////
+///////////////
+// FUNCTIONS //
+///////////////
 
 // Do math based on the grid (2 columns is /2, 3 columns is /3, etc.)
 @function grid-math( $column-width: 50%, $columns: 2 ) {
@@ -29,9 +29,9 @@ $l-size: 80em;
 
 
 
-//
-// MIXINS
-//////////
+////////////
+// MIXINS //
+////////////
 
 // Trying not to repeat myself
 @mixin grid($columns: 2) {
@@ -48,7 +48,7 @@ $l-size: 80em;
 @mixin icon-math($columns: 2) {
   $i: 1;
   @each $col in $columns {
-    &[data-icons="#{$i}"] {
+    [data-icons="#{$i}"] & {
       @include grid( $col );
     }
     $i: $i + 1;
@@ -57,9 +57,11 @@ $l-size: 80em;
 
 
 
-//
-// Middle-aligned website layout -- <html><body></body></html>
-//////////
+///////////////////////////////////
+// Middle-aligned website layout //
+// ----------------------------- //
+// <html><body></html>           //
+///////////////////////////////////
 
 html {
   display: table; // OMG!! Not tables!
@@ -84,9 +86,12 @@ html {
 
 
 
-//
-// Grid component -- <ul class=grid><li></li></ul>
-//////////
+
+///////////////////////////////////////////////////////////
+// Grid component                                        //
+// --------------                                        //
+// <div class=grid__wrapper><div class=grid__item></div> //
+///////////////////////////////////////////////////////////
 
 // Set padding from edge of browser
 .grid__wrapper {
@@ -114,9 +119,11 @@ html {
 
 
 
-//
-// Icon component -- <a class=icon><img></a>
-//////////
+//////////////////////////////////////////////////////////////////
+// Icon component                                               //
+// --------------                                               //
+// <div class=icon__wrapper><a class=icon__item><img></a></div> //
+//////////////////////////////////////////////////////////////////
 
 .icon__wrapper {
   position: relative;
@@ -155,9 +162,9 @@ html {
 
 
 
-//
-// Animation keyframes
-//////////
+/////////////////////////
+// Animation keyframes //
+/////////////////////////
 
 @include keyframes( fadeInDown ){
     0% { top: -50px; opacity: 0; }
