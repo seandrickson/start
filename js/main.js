@@ -21,10 +21,9 @@
         $('<div/>')
           .addClass('grid__item icon__wrapper')
           .hide()
-          .append(
-            '<a href="'+icons[i].url+'" class="icon__item">'+
-            '<img alt="'+icons[i].name+'" src="'+data.results[i].artworkUrl100+'">'+
-            '</a>')
+          .append('<a href="'+icons[i].url+'" class="icon__item">'+
+                  '<img alt="'+icons[i].name+'" src="'+data.results[i].artworkUrl100+'">'+
+                  '</a>')
           .appendTo($wrapper)
           .delay(200*i)
           .fadeIn();
