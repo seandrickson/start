@@ -72,7 +72,7 @@ html {
   body {
     display: table-cell;
     vertical-align: middle;
-    padding: 2% 20%;
+    padding: 10%;
     color: #EEE;
     background-color: #000;
     @include background-image( linear-gradient(
@@ -82,6 +82,7 @@ html {
       lighten( #000, 11% ),
       #000
     ) );
+    @include mq($m-size) { padding: 10% 20%; }
   }
 
 

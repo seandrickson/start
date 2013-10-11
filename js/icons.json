@@ -1,7 +1,0 @@
-[
-  { "name":"Facebook",    "url":"https://www.facebook.com/", "id":284882215 },
-  { "name":"YouTube",     "url":"https://www.youtube.com/",  "id":544007664 },
-  { "name":"Pinterest",   "url":"http://www.pinterest.com/", "id":429047995 },
-  { "name":"Dribbble",    "url":"http://dribbble.com/",      "id":665704495 },
-  { "name":"iHeartRadio", "url":"http://www.iheart.com/",    "id":290638154 }
-]

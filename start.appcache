@@ -1,9 +1,8 @@
 CACHE MANIFEST
-# 2013.10.07
+# 2013.10.11
 
 CACHE:
 css/main.css
-js/icons.json
 js/jquery-2.0.3.min.js
 js/jquery-2.0.3.min.map
 js/main.min.js
