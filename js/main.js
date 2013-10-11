@@ -36,15 +36,16 @@
 
     // Create each icon and append to wrapper
     $.each(data.results, function(i){
-      $('<div/>')
-        .addClass('grid__item icon__wrapper')
-        .hide()
+      $('<div class="grid__item icon__wrapper">')
+        .css('opacity', '0')
         .append('<a href="'+icons[i].url+'" class="icon__item">'+
                 '<img alt="'+icons[i].name+'" src="'+data.results[i].artworkUrl100+'">'+
                 '</a>')
         .appendTo($wrapper)
-        .delay(200*i)
-        .fadeIn();
+        .delay(200*i).queue(function(next){
+          $(this).addClass('fadein').removeAttr('style');
+          next();
+        });
     });
   });
 

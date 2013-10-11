@@ -130,8 +130,6 @@ html {
   position: relative;
   @include perspective( 100px );
   @include backface-visibility( hidden );
-  @include animation( fadeInDown 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) );
-  // Beizer value is ease-in-out-back: http://easings.net/#easeInOutBack
 }
 
   .icon__item {
@@ -163,9 +161,14 @@ html {
 
 
 
-/////////////////////////
-// Animation keyframes //
-/////////////////////////
+///////////////
+// Animation //
+///////////////
+
+.fadein {
+  @include animation( fadeInDown 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) );
+  // Beizer value is ease-in-out-back: http://easings.net/#easeInOutBack
+}
 
 @include keyframes( fadeInDown ){
     0% { top: -50px; opacity: 0; }
