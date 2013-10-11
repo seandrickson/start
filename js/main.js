@@ -29,9 +29,8 @@
     // Now let us build this thing
 
     // We'll start by making the wrapper
-    var $wrapper = $('<div/>')
+    var $wrapper = $('<div class="grid__wrapper">')
       .attr('data-icons', data.resultCount)
-      .addClass('grid__wrapper')
       .appendTo('body');
 
     // Create each icon and append to wrapper
@@ -41,11 +40,17 @@
         .append('<a href="'+icons[i].url+'" class="icon__item">'+
                 '<img alt="'+icons[i].name+'" src="'+data.results[i].artworkUrl100+'">'+
                 '</a>')
-        .appendTo($wrapper)
-        .delay(200*i).queue(function(next){
+        .appendTo($wrapper);
+    });
+
+    // Once everything is done loading, we'll display the whole thing
+    $(window).load(function(){
+      $wrapper.children().each(function(i){
+        $(this).delay(200*i).queue(function(next){
           $(this).addClass('fadein').removeAttr('style');
           next();
         });
+      });
     });
   });
 
