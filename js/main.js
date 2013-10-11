@@ -1,4 +1,5 @@
-(function(i, ids){
+!function(i, ids){
+  'use strict';
 
   // Name: Name of the site
   // URL: Url of the site to go to
@@ -54,4 +55,4 @@
     });
   });
 
-}());
+}();
