@@ -1,6 +1,5 @@
-'use strict';
-
 module.exports = function(grunt) {
+  "use strict";
 
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -33,7 +32,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: ['js/*.js'],
+      files: ['Gruntfile.js','<%= watch.js.files %>'],
       options: {
         ignores: ['js/jquery*.js']
       }
@@ -42,7 +41,7 @@ module.exports = function(grunt) {
     uglify: {
       min: {
         files: {
-          'js/main.min.js': ['js/main.js']
+          'js/main.min.js': ['<%= watch.js.files %>']
         }
       }
     },
@@ -69,5 +68,4 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', 'watch');
-
-}
+};

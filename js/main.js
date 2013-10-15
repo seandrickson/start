@@ -1,4 +1,4 @@
-!function(i, ids){
+(function(i, ids){
   'use strict';
 
   // Name: Name of the site
@@ -7,8 +7,8 @@
   // https://itunes.apple.com/us/app/facebook/id284882215?mt=8
   var icons = [
     { "name": "Facebook",      "url": "https://www.facebook.com/",   "id": 284882215 },
-    { "name": "Designer News", "url": "http://news.layervault.com/", "id": 617221064 },
     { "name": "YouTube",       "url": "https://www.youtube.com/",    "id": 544007664 },
+    { "name": "Designer News", "url": "http://news.layervault.com/", "id": 617221064 },
     { "name": "Pinterest",     "url": "http://www.pinterest.com/",   "id": 429047995 },
     { "name": "Behance",       "url": "http://www.behance.net/",     "id": 489667151 },
     { "name": "iHeartRadio",   "url": "http://www.iheart.com/",      "id": 290638154 }
@@ -54,4 +54,4 @@
     });
   });
 
-}();
+}());

@@ -155,6 +155,7 @@ html {
 
     img {
       max-width: 100%;
+      vertical-align: top;
       border-radius: (27px / 120px) * 100%; // ~27px radius at 120x120px icon for iOS7
       outline: 1px solid transparent; // Firefox rendering fix
       box-shadow: 0 1em 2em -.2em #000;
