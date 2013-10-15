@@ -1,16 +1,18 @@
 {
   "name": "start",
-  "version": "2013.10.11.2",
+  "version": "2013.10.15",
   "repository": {
     "type": "git",
     "url": "https://github.com/seandrickson/start.git"
   },
   "devDependencies": {
     "grunt":                 "0.4.x",
+    "grunt-autoprefixer":    "0.3.x",
     "grunt-contrib-compass": "0.6.x",
     "grunt-contrib-jshint":  "0.6.x",
     "grunt-contrib-uglify":  "0.2.x",
     "grunt-contrib-watch":   "0.5.x",
+    "grunt-csso":            "0.5.x",
     "matchdep":              "0.3.x"
   }
 }

@@ -23,7 +23,7 @@ $l-size: 80em;
 ///////////////
 
 // Do math based on the grid (2 columns is /2, 3 columns is /3, etc.)
-@function grid-math( $column-width: 50%, $columns: 2 ) {
+@function grid-math($column-width: 50%, $columns: 2) {
   @return $column-width / $columns;
 }
 
@@ -35,8 +35,8 @@ $l-size: 80em;
 
 // Trying not to repeat myself
 @mixin grid($columns: 2) {
-  width:   grid-math( $column-width, $columns );
-  padding: grid-math( $gutter-width, $columns ) / 2; // Divide by two, for padding on both sides
+  width:   grid-math($column-width, $columns);
+  padding: grid-math($gutter-width, $columns) / 2; // Divide by two, for padding on both sides
 }
 
 // Standard media query mixin
@@ -44,12 +44,12 @@ $l-size: 80em;
   @media (min-width: $size) { @content; }
 }
 
-// Run through hand-picked column values based on the amount of icons
+// Run through hand-picked column values based on the amount of icons, starting at 2 columns
 @mixin icon-math($columns: 2) {
-  $i: 1;
+  $i: 2;
   @each $col in $columns {
-    [data-icons="#{$i}"] & {
-      @include grid( $col );
+    .grid__item--#{$i}up {
+      @include grid($col);
     }
     $i: $i + 1;
   }
@@ -72,17 +72,19 @@ html {
   body {
     display: table-cell;
     vertical-align: middle;
-    padding: 10%;
-    color: #EEE;
-    background-color: #000;
-    @include background-image( linear-gradient(
-      #000,
-      lighten( #000, 11% ),
-      lighten( #000, 18% ),
-      lighten( #000, 11% ),
-      #000
-    ) );
-    @include mq($m-size) { padding: 10% 20%; }
+    padding: 0 5%;
+    color: #DDD;
+    background-color: black;
+    background-image: linear-gradient(
+      black,
+      lighten(black, 11%),
+      lighten(black, 18%),
+      lighten(black, 11%),
+      black
+    );
+    @include mq($s-size) { padding: 0 10%; }
+    @include mq($m-size) { padding: 0 20%; }
+    @include mq($l-size) { padding: 0 30%; }
   }
 
 
@@ -106,16 +108,16 @@ html {
 
     // Small size (no media query)
     @include grid;
+  }
 
-    // Medium size
-    @include mq($m-size) {
-      @include icon-math( (1,2,3,4,3,3,4,4,3,4,4,4,4,4,4,4) );
-    }
+  // Medium size
+  @include mq($m-size) {
+    @include icon-math((2,3,4,3,3,4,4,3,4,4,4,4,4,4,4));
+  }
 
-    // Large size
-    @include mq($l-size) {
-      @include icon-math( (1,2,3,4,5,3,4,4,3,5,4,4,5,5,5,4) );
-    }
+  // Large size
+  @include mq($l-size) {
+    @include icon-math((2,3,4,5,3,4,4,3,5,4,4,5,5,5,4));
   }
 
 
@@ -128,26 +130,26 @@ html {
 
 .icon__wrapper {
   position: relative;
-  @include perspective( 100px );
-  @include backface-visibility( hidden );
+  perspective: 100px;
+  backface-visibility: hidden;
 }
 
   .icon__item {
     display: block;
-    @include transform( translateZ(-7px) );
-    @include transition( .1s ease-in-out .015s );
+    transform: translateZ(-7px);
+    transition: .1s ease-in-out .015s;
 
     &:hover {
-      @include transform( translateZ(0) );
+      transform: translateZ(0);
       img { box-shadow: 0 1em 2.5em -.2em #000; }
     }
     &:focus {
       outline: none;
-      @include transform( translateZ(0) );
+      transform: translateZ(0);
       img { box-shadow: 0 0 2.5em -.2em #FFF; }
     }
     &:active {
-      @include transform( translateZ(-10px) );
+      transform: translateZ(-10px);
       img { box-shadow: 0 1em 1.5em -.2em #000; }
     }
 
@@ -166,11 +168,11 @@ html {
 ///////////////
 
 .fadein {
-  @include animation( fadeInDown 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) );
+  animation: fadeInDown 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   // Beizer value is ease-in-out-back: http://easings.net/#easeInOutBack
 }
 
-@include keyframes( fadeInDown ){
+@keyframes fadeInDown {
     0% { top: -50px; opacity: 0; }
   100% { top:     0; opacity: 1; }
 }

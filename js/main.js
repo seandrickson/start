@@ -31,12 +31,11 @@
 
     // We'll start by making the wrapper
     var $wrapper = $('<div class="grid__wrapper">')
-      .attr('data-icons', data.resultCount)
       .appendTo('body');
 
     // Create each icon and append to wrapper
     $.each(data.results, function(i){
-      $('<div class="grid__item icon__wrapper">')
+      $('<div class="grid__item grid__item--'+data.resultCount+'up icon__wrapper">')
         .css('opacity', '0')
         .append('<a href="'+icons[i].url+'" class="icon__item">'+
                 '<img alt="'+icons[i].name+'" src="'+data.results[i].artworkUrl100+'">'+

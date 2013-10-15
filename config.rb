@@ -8,7 +8,7 @@ images_dir = "img"
 javascripts_dir = "js"
 fonts_dir = "fonts"
 
-output_style = :compressed
+output_style = :nested
 relative_assets = true
 
 # If you prefer the indented syntax, you might want to regenerate this
