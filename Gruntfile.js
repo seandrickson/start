@@ -17,7 +17,13 @@ module.exports = function(grunt) {
     compass: {
       dev: {
         options: {
-          config: 'config.rb',
+          sassDir: 'css',
+          cssDir: 'css',
+          imagesDir: 'img',
+          javascriptsDir: 'js',
+          fontsDir: 'fonts',
+          outputStyle: 'nested',
+          relativeAssets: true,
           force: true
         }
       }
@@ -31,37 +37,48 @@ module.exports = function(grunt) {
       }
     },
 
+    jade: {
+      compile: {
+        options: {
+          pretty: true
+        },
+        files: {
+          'index.html': ['<%= watch.jade.files %>']
+        }
+      }
+    },
+
     jshint: {
       files: ['Gruntfile.js','<%= watch.js.files %>'],
       options: {
-        ignores: ['js/jquery*.js']
+        ignores: ['js/*.min.js']
       }
     },
 
     uglify: {
       min: {
         files: {
-          'js/main.min.js': ['<%= watch.js.files %>']
+          'js/main.min.js': ['js/main.js']
         }
       }
     },
 
     watch: {
+      jade: {
+        files: ['*.jade'],
+        tasks: ['jade']
+      },
       sass: {
         files: ['css/*.scss'],
-        tasks: ['compass','autoprefixer','csso']
+        tasks: ['compass','autoprefixer','csso','jade']
       },
-      /* watch and see if our javascript files change, or new packages are installed */
       js: {
-        files: ['js/main.js'],
-        tasks: ['jshint','uglify']
+        files: ['js/*.js'],
+        tasks: ['jshint','uglify','jade']
       },
-      /* watch our files for change, reload */
       livereload: {
-        files: ['*.html', 'css/*.css', 'js/*.js'],
-        options: {
-          livereload: true
-        }
+        files: ['*.jade','*.html','css/*.css','js/*.js'],
+        options: { livereload: true }
       },
     }
 
