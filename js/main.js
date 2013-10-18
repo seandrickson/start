@@ -1,3 +1,7 @@
+/*!
+ * main.js | https://github.com/seandrickson/start/blob/gh-pages/js/main.js
+ */
+
 (function(i, ids){
   'use strict';
 
