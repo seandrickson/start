@@ -1,8 +1,6 @@
 @import "compass";
 
-/*!
- * main.scss | https://github.com/seandrickson/start/blob/gh-pages/css/main.scss
- */
+/*! main.scss */
 
 
 
@@ -18,7 +16,8 @@ $s-size: 32em;
 $m-size: 56em;
 $l-size: 80em;
 
-
+$m-col-num: (2,3,4,5,3,4,4,3,5,4,4,5,5,5,4);
+$l-col-num: (2,3,4,5,6,4,4,3,5,6,6,5,5,5,4);
 
 ///////////////
 // FUNCTIONS //
@@ -74,7 +73,6 @@ html {
   body {
     display: table-cell;
     vertical-align: middle;
-    padding: 0 5%;
     color: #DDD;
     background-color: black;
     background-image: linear-gradient(
@@ -84,9 +82,6 @@ html {
       lighten(black, 11%),
       black
     );
-    @include mq($s-size) { padding: 0 10%; }
-    @include mq($m-size) { padding: 0 20%; }
-    @include mq($l-size) { padding: 0 30%; }
   }
 
 
@@ -100,9 +95,12 @@ html {
 
 // Set padding from edge of browser
 .grid__wrapper {
-  margin: 0 auto;
+  margin: 0 5%;
   max-width: $l-size;
   @include pie-clearfix;
+  @include mq($s-size) { margin: 0 10%; }
+  @include mq($m-size) { margin: 0 15%; }
+  @include mq($l-size) { margin: 0 20%; }
 }
 
   .grid__item {
@@ -113,14 +111,10 @@ html {
   }
 
   // Medium size
-  @include mq($m-size) {
-    @include icon-math((2,3,4,3,3,4,4,3,4,4,4,4,4,4,4));
-  }
+  @include mq($m-size) { @include icon-math($m-col-num); }
 
   // Large size
-  @include mq($l-size) {
-    @include icon-math((2,3,4,5,3,4,4,3,5,4,4,5,5,5,4));
-  }
+  @include mq($l-size) { @include icon-math($l-col-num); }
 
 
 
@@ -139,7 +133,7 @@ html {
   .icon__item {
     display: block;
     transform: translateZ(-7px);
-    transition: .1s ease-in-out .015s;
+    transition: .05s ease-in-out .015s;
 
     &:hover {
       transform: translateZ(0);
@@ -151,7 +145,7 @@ html {
       img { box-shadow: 0 0 2.5em -.2em #FFF; }
     }
     &:active {
-      transform: translateZ(-10px);
+      transform: translateZ(-7px);
       img { box-shadow: 0 1em 1.5em -.2em #000; }
     }
 
