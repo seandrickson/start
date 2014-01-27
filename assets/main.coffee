@@ -1,9 +1,12 @@
 window.onload = ->
+  i = 0
   items = document.getElementById("wrapper").children
-  (myLoop = (i)->
+  do loopIt = (i) ->
     setTimeout ->
       items[i].className += " fadein"
-      items[i].removeAttribute "style"
-      myLoop i if ++i < items.length
+      items[i].removeAttribute("style")
+      loopIt(i) if ++i < items.length
+      return
     , 200
-   ) 0
+    return
+  return
