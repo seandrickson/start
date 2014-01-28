@@ -73,11 +73,7 @@ module.exports = (grunt) ->
         tasks: ["autoprefixer", "jade"]
 
       livereload:
-        files: [
-          "<%= watch.jade.files %>",
-          "<%= watch.css.files %>",
-          "<%= watch.js.files %>"
-        ]
+        files: ["index.html"]
         options:
           livereload: true
 

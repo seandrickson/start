@@ -19,6 +19,8 @@ $l-size: 80em;
 $m-col-num: (2,3,4,5,3,4,4,3,5,4,4,5,5,5,4);
 $l-col-num: (2,3,4,5,6,4,4,3,5,6,6,5,5,5,4);
 
+
+
 ///////////////
 // FUNCTIONS //
 ///////////////
@@ -58,14 +60,27 @@ $l-col-num: (2,3,4,5,6,4,4,3,5,6,6,5,5,5,4);
 
 
 
+/////////////////////////////
+// New general definitions //
+/////////////////////////////
+
+a:focus { outline: none; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  outline: 1px solid transparent; // Firefox rendering fix
+}
+
+
+
 ///////////////////////////////////
 // Middle-aligned website layout //
-// ----------------------------- //
-// <html><body></html>           //
 ///////////////////////////////////
 
 html {
-  display: table; // OMG!! Not tables!
+  display: table;
   width: 100%;
   height: 100%;
 }
@@ -74,7 +89,7 @@ html {
     display: table-cell;
     vertical-align: middle;
     color: #DDD;
-    background-color: black;
+    background-color: #222;
     background-image: linear-gradient(
       black,
       lighten(black, 11%),
@@ -86,21 +101,19 @@ html {
 
 
 
-
 ///////////////////////////////////////////////////////////
 // Grid component                                        //
 // --------------                                        //
 // <div class=grid__wrapper><div class=grid__item></div> //
 ///////////////////////////////////////////////////////////
 
-// Set padding from edge of browser
+// Set margin from edge of browser
 .grid__wrapper {
   margin: 0 5%;
-  max-width: $l-size;
-  @include pie-clearfix;
   @include mq($s-size) { margin: 0 10%; }
   @include mq($m-size) { margin: 0 15%; }
   @include mq($l-size) { margin: 0 20%; }
+  @include pie-clearfix;
 }
 
   .grid__item {
@@ -132,29 +145,23 @@ html {
 
   .icon__item {
     display: block;
+    overflow: hidden;
+    border-radius: (27px / 120px) * 100%; // ~27px radius at 120x120px icon for iOS7
+    box-shadow: 0 1em 2em -.2em rgba(black,.5);
     transform: translateZ(-7px);
-    transition: .05s ease-in-out .015s;
+    transition: transform ease-out .07s;
 
     &:hover {
       transform: translateZ(0);
-      img { box-shadow: 0 1em 2.5em -.2em #000; }
+      box-shadow: 0 1em 2.5em -.2em rgba(black,.5);
     }
     &:focus {
-      outline: none;
       transform: translateZ(0);
-      img { box-shadow: 0 0 2.5em -.2em #FFF; }
+      box-shadow: 0 0 2.5em -.2em rgba(white,.5);
     }
     &:active {
       transform: translateZ(-7px);
-      img { box-shadow: 0 1em 1.5em -.2em #000; }
-    }
-
-    img {
-      max-width: 100%;
-      vertical-align: top;
-      border-radius: (27px / 120px) * 100%; // ~27px radius at 120x120px icon for iOS7
-      outline: 1px solid transparent; // Firefox rendering fix
-      box-shadow: 0 1em 2em -.2em #000;
+      box-shadow: 0 1em 1.5em -.2em rgba(black,.5);
     }
   }
 
