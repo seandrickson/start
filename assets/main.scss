@@ -64,8 +64,10 @@ $l-col-num: (2,3,4,5,6,4,4,3,5,6,6,5,5,5,4);
 // New general definitions //
 /////////////////////////////
 
+// focus styles applied to icons
 a:focus { outline: none; }
 
+// all images should be responsive
 img {
   max-width: 100%;
   height: auto;
@@ -144,22 +146,22 @@ html {
 }
 
   .icon__item {
-    display: block;
-    overflow: hidden;
-    border-radius: (27px / 120px) * 100%; // ~27px radius at 120x120px icon for iOS7
-    box-shadow: 0 1em 2em -.2em rgba(black,.5);
-    transform: translateZ(-7px);
-    transition: transform ease-out .07s;
+    img {
+      border-radius: (27px / 120px) * 100%; // ~27px radius at 120x120px icon for iOS7
+      box-shadow: 0 1em 2em -.2em rgba(black,.5);
+      transform: translateZ(-7px);
+      transition: transform ease-out .07s;
+    }
 
-    &:hover {
+    &:hover img {
       transform: translateZ(0);
       box-shadow: 0 1em 2.5em -.2em rgba(black,.5);
     }
-    &:focus {
+    &:focus img {
       transform: translateZ(0);
       box-shadow: 0 0 2.5em -.2em rgba(white,.5);
     }
-    &:active {
+    &:active img {
       transform: translateZ(-7px);
       box-shadow: 0 1em 1.5em -.2em rgba(black,.5);
     }

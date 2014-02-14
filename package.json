@@ -6,14 +6,14 @@
     "url": "https://github.com/seandrickson/start.git"
   },
   "devDependencies": {
-    "grunt":                 "latest",
-    "grunt-autoprefixer":    "latest",
-    "grunt-coffeelint":      "latest",
-    "grunt-contrib-coffee":  "latest",
-    "grunt-contrib-compass": "latest",
-    "grunt-contrib-jade":    "latest",
-    "grunt-contrib-uglify":  "latest",
-    "grunt-contrib-watch":   "latest",
-    "matchdep":              "latest"
+    "grunt":                 "*",
+    "grunt-autoprefixer":    "*",
+    "grunt-coffeelint":      "*",
+    "grunt-contrib-coffee":  "*",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-jade":    "*",
+    "grunt-contrib-uglify":  "*",
+    "grunt-contrib-watch":   "*",
+    "load-grunt-tasks":      "*"
   }
 }

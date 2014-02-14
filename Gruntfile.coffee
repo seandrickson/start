@@ -1,51 +1,35 @@
 module.exports = (grunt) ->
-  "use strict"
 
-  require("matchdep").filterDev("grunt-*").forEach grunt.loadNpmTasks
+  require('load-grunt-tasks') grunt
 
   grunt.initConfig
     pkg: grunt.file.readJSON "package.json"
 
-    jade:
-      dev:
-        options:
-          data: grunt.file.readJSON "assets/icons.json"
-          pretty: true
+    jade: dev:
+      options:
+        data: grunt.file.readJSON "assets/icons.json"
+        pretty: true
+      files: "index.html": ["<%= watch.jade.files %>"]
 
-        files:
-          "index.html": ["<%= watch.jade.files %>"]
+    compass: dev:
+      options:
+        sassDir: "assets"
+        cssDir: "assets"
+        outputStyle: "compressed"
+        force: true
 
-    compass:
-      dev:
-        options:
-          sassDir: "assets"
-          cssDir: "assets"
-          outputStyle: "compressed"
-          force: true
+    autoprefixer: no_dest: src: "<%= watch.css.files %>"
 
-    autoprefixer:
-      no_dest:
-        src: "<%= watch.css.files %>"
-
-    coffee:
-      compile:
-        options:
-          bare: true
-        files:
-          "assets/main.js": ["<%= watch.coffee.files %>"]
+    coffee: dev:
+      options: bare: true
+      files: "assets/main.js": ["<%= watch.coffee.files %>"]
 
     coffeelint:
-      grunt:
-        files:
-          src: ["<%= watch.grunt.files %>"]
-      dev:
-        files:
-          src: ["<%= watch.coffee.files %>"]
+      grunt: files: src: ["<%= watch.grunt.files %>"]
+      dev: files: src: ["<%= watch.coffee.files %>"]
 
-    uglify:
-      dev:
-        files:
-          "assets/main.js": ["<%= watch.js.files %>"]
+    uglify: dev:
+      files: "assets/main.js": ["assets/main.js"]
 
     watch:
       grunt:
@@ -57,24 +41,19 @@ module.exports = (grunt) ->
         tasks: ["jade"]
 
       coffee:
-        files: ["assets/*.coffee"]
-        tasks: ["coffeelint:dev", "coffee"]
-
-      js:
-        files: ["assets/*.js"]
-        tasks: ["uglify", "jade"]
+        files: ["assets/main.coffee"]
+        tasks: ["coffeelint:dev", "coffee", "uglify", "jade"]
 
       sass:
-        files: ["<%= compass.dev.options.sassDir %>/*.scss"]
+        files: ["assets/*.scss"]
         tasks: ["compass"]
 
       css:
-        files: ["<%= compass.dev.options.cssDir %>/*.css"]
+        files: ["assets/*.css"]
         tasks: ["autoprefixer", "jade"]
 
       livereload:
         files: ["index.html"]
-        options:
-          livereload: true
+        options: livereload: true
 
   grunt.registerTask "default", "watch"
