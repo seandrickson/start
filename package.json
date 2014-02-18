@@ -1,19 +1,21 @@
 {
   "name": "start",
-  "version": "2013.10.15.1",
+  "version": "2014.02.18",
   "repository": {
     "type": "git",
     "url": "https://github.com/seandrickson/start.git"
   },
+  "private": true,
   "devDependencies": {
-    "grunt":                 "*",
-    "grunt-autoprefixer":    "*",
-    "grunt-coffeelint":      "*",
-    "grunt-contrib-coffee":  "*",
-    "grunt-contrib-compass": "*",
-    "grunt-contrib-jade":    "*",
-    "grunt-contrib-uglify":  "*",
-    "grunt-contrib-watch":   "*",
-    "load-grunt-tasks":      "*"
+    "grunt":                 "",
+    "grunt-contrib-coffee":  "",
+    "grunt-contrib-compass": "",
+    "grunt-contrib-jade":    "",
+    "grunt-contrib-uglify":  "",
+    "grunt-contrib-watch":   "",
+    "grunt-autoprefixer":    "",
+    "grunt-coffeelint":      "",
+    "grunt-manifest":        "",
+    "load-grunt-tasks":      ""
   }
 }

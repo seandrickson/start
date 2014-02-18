@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" manifest="manifest.appcache">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +22,7 @@
       <div style="opacity:0" class="icon__wrapper grid__item grid__item--4up"><a href="http://www.pinterest.com/" class="icon__item"><img alt="pinterest" src="assets/img/pinterest.png"></a></div>
       <div style="opacity:0" class="icon__wrapper grid__item grid__item--4up"><a href="https://www.youtube.com/" class="icon__item"><img alt="youtube" src="assets/img/youtube.png"></a></div>
     </div>
-    <script>window.onload=function(){var a,b,c;a=0,b=document.getElementById("wrapper").children,(c=function(a){setTimeout(function(){b[a].className+=" fadein",b[a].removeAttribute("style"),++a<b.length&&c(a)},200)})(a)};
+    <script>window.onload=function(){var a,b,c,d;c=0,a="fadein",b=document.getElementById("wrapper").children,(d=function(c){var e;e=b[c],setTimeout(function(){e.classList?e.classList.add(a):e.className+=" "+a,e.removeAttribute("style"),++c<b.length&&d(c)},200)})(c)};
     </script>
   </body>
 </html>

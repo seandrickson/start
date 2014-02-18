@@ -1,1 +1,1 @@
-window.onload=function(){var a,b,c;a=0,b=document.getElementById("wrapper").children,(c=function(a){setTimeout(function(){b[a].className+=" fadein",b[a].removeAttribute("style"),++a<b.length&&c(a)},200)})(a)};
+window.onload=function(){var a,b,c,d;c=0,a="fadein",b=document.getElementById("wrapper").children,(d=function(c){var e;e=b[c],setTimeout(function(){e.classList?e.classList.add(a):e.className+=" "+a,e.removeAttribute("style"),++c<b.length&&d(c)},200)})(c)};

@@ -5,6 +5,10 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON "package.json"
 
+    manifest: dev:
+      options: basePath: "assets/img"
+      src: "*"
+
     jade: dev:
       options:
         data: grunt.file.readJSON "assets/icons.json"
@@ -28,8 +32,7 @@ module.exports = (grunt) ->
       grunt: files: src: ["<%= watch.grunt.files %>"]
       dev: files: src: ["<%= watch.coffee.files %>"]
 
-    uglify: dev:
-      files: "assets/main.js": ["assets/main.js"]
+    uglify: dev: files: "assets/main.js": ["assets/main.js"]
 
     watch:
       grunt:
@@ -38,11 +41,11 @@ module.exports = (grunt) ->
 
       jade:
         files: ["index.jade"]
-        tasks: ["jade"]
+        tasks: ["jade", "manifest"]
 
       coffee:
         files: ["assets/main.coffee"]
-        tasks: ["coffeelint:dev", "coffee", "uglify", "jade"]
+        tasks: ["coffeelint:dev", "coffee", "uglify", "jade", "manifest"]
 
       sass:
         files: ["assets/*.scss"]
@@ -50,7 +53,7 @@ module.exports = (grunt) ->
 
       css:
         files: ["assets/*.css"]
-        tasks: ["autoprefixer", "jade"]
+        tasks: ["autoprefixer", "jade", "manifest"]
 
       livereload:
         files: ["index.html"]
