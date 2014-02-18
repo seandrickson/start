@@ -11,7 +11,7 @@ html(lang='en-US' manifest='manifest.appcache')
     title Start
     meta(name='description', content='Personal custom start page')
     style
-      include assets/main.css
+      include assets/dest/main.css
   body
     #wrapper.grid__wrapper
       - each i in icons
@@ -19,4 +19,4 @@ html(lang='en-US' manifest='manifest.appcache')
           a(href=i.url).icon__item
             img(alt=i.name, src='assets/img/#{i.name}.png')
     script
-      include assets/main.js
+      include assets/dest/main.js

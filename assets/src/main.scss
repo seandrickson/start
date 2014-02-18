@@ -1,5 +1,3 @@
-@import "compass";
-
 /*! main.scss */
 
 
@@ -115,7 +113,12 @@ html {
   @include mq($s-size) { margin: 0 10%; }
   @include mq($m-size) { margin: 0 15%; }
   @include mq($l-size) { margin: 0 20%; }
-  @include pie-clearfix;
+
+  &:after {
+    content: ' ';
+    display: table;
+    clear: both;
+  }
 }
 
   .grid__item {

@@ -1,0 +1,15 @@
+{
+  "icons": [{
+    "name": "gmail",
+    "url": "https://mail.google.com/mail/"
+  },{
+    "name": "facebook",
+    "url": "https://www.facebook.com/"
+  },{
+    "name": "pinterest",
+    "url": "http://www.pinterest.com/"
+  },{
+    "name": "youtube",
+    "url": "https://www.youtube.com/"
+  }]
+}
