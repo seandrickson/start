@@ -20,7 +20,7 @@ module.exports = (grunt) ->
         dest: "<%= paths.dest %>/main.js"
 
     manifest: dev:
-      options: basePath: "assets/img"
+      src: "assets/img/*"
 
     jade: dev:
       options:
