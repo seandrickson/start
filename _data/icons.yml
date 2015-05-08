@@ -1,0 +1,39 @@
+-
+  name: "Inbox"
+  icon: "img/inbox.png"
+  url: "https://inbox.google.com/"
+
+-
+  name: "Facebook"
+  icon: "img/facebook.jpeg"
+  url: "https://www.facebook.com/"
+
+-
+  name: "Netflix"
+  icon: "img/netflix.png"
+  url: "http://www.netflix.com/WiHome"
+
+-
+  name: "Hulu"
+  icon: "img/hulu.png"
+  url: "http://www.hulu.com/"
+
+-
+  name: "Amazon Instant Video"
+  icon: "img/amazon.jpeg"
+  url: "http://www.amazon.com/Prime-Instant-Video/b?node=2676882011"
+
+-
+  name: "Songza"
+  icon: "img/songza.jpeg"
+  url: "http://songza.com/"
+
+-
+  name: "Pinterest"
+  icon: "img/pinterest.png"
+  url: "http://www.pinterest.com/"
+
+-
+  name: "Google Maps"
+  icon: "img/googlemaps.png"
+  url: "https://www.google.com/maps"

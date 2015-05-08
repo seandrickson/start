@@ -1,1 +1,0 @@
-window.onload=function(){var a,b,c,d;c=0,a="fadein",b=document.getElementById("wrapper").children,(d=function(c){var e;e=b[c],setTimeout(function(){e.classList?e.classList.add(a):e.className+=" "+a,e.removeAttribute("style"),++c<b.length&&d(c)},200)})(c)};

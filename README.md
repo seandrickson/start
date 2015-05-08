@@ -1,4 +1,8 @@
-[Start](http://seandrickson.github.io/start/)
-=======
+# [Start](http://seandrickson.github.io/start/)
 
-Personal custom start page
+## Personal custom start page
+
+### What do I want to do?
+* Implement native Github Pages framework (Jekyll)
+* Use SVG clips
+* 
