@@ -109,6 +109,9 @@ body {
     rgba(black, .3),
     black
   ) );
+  // Set perspective for animation
+  @include perspective( 100px );
+  @include backface-visibility( hidden );
 }
 
 
@@ -125,9 +128,6 @@ body {
   @include mq($s-size) { margin: 0 10%; }
   @include mq($m-size) { margin: 0 15%; }
   @include mq($l-size) { margin: 0 20%; }
-  // Set perspective for animation
-  @include perspective( 100px );
-  @include backface-visibility( hidden );
   @include clearfix;
 }
 
@@ -186,6 +186,9 @@ body {
 ///////////////
 // Animation //
 ///////////////
+#fadein:not(.anim-fadein) {
+  opacity: 0;
+}
 
 .anim-fadein {
   @include animation( fadeInDown 1s both );
