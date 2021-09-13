@@ -1,39 +1,50 @@
 -
-  name: "Inbox"
-  icon: "img/inbox.png"
-  url: "https://inbox.google.com/"
-
+  name: Gmail
+  icon: https://is3-ssl.mzstatic.com/image/thumb/Purple125/v4/4d/6f/f8/4d6ff843-a847-8226-88df-e0be268b56ca/source/512x512bb.jpg
+  url: https://mail.google.com/mail/u/0/
+  id: 422689480
 -
-  name: "Facebook"
-  icon: "img/facebook.jpeg"
-  url: "https://www.facebook.com/"
-
+  name: Google Keep
+  icon: ''
+  url: https://keep.google.com/u/0/
+  id: 1029207872
 -
-  name: "Netflix"
-  icon: "img/netflix.png"
-  url: "http://www.netflix.com/WiHome"
-
+  name: Google Calendar
+  icon: ''
+  url: https://calendar.google.com/calendar/u/0/r
+  id: 909319292
 -
-  name: "Hulu"
-  icon: "img/hulu.png"
-  url: "http://www.hulu.com/"
-
+  name: Instagram
+  icon: ''
+  url: https://www.instagram.com/
+  id: 389801252
 -
-  name: "Amazon Instant Video"
-  icon: "img/amazon.jpeg"
-  url: "http://www.amazon.com/Prime-Instant-Video/b?node=2676882011"
-
+  name: Facebook
+  icon: ''
+  url: https://www.facebook.com/
+  id: 284882215
 -
-  name: "Songza"
-  icon: "img/songza.jpeg"
-  url: "http://songza.com/"
-
+  name: YouTube Music
+  icon: ''
+  url: https://music.youtube.com/
+  id: 1017492454
 -
-  name: "Pinterest"
-  icon: "img/pinterest.png"
-  url: "http://www.pinterest.com/"
-
+  name: Jira
+  icon: ''
+  url: https://jira.lendingtree.com/secure/Dashboard.jspa
+  id: 1006972087
 -
-  name: "Google Maps"
-  icon: "img/googlemaps.png"
-  url: "https://www.google.com/maps"
+  name: Gitlab
+  icon: ''
+  url: https://gitlab.lendingtree.com/dashboard/projects/starred
+  id: 654747119
+-
+  name: Workday
+  icon: ''
+  url: https://www.myworkday.com/lendingtree/d/home.htmld
+  id: 316800034
+-
+  name: Betterworks
+  icon: ''
+  url: https://app.betterworks.com/app/
+  id: 1232326234

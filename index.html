@@ -3,18 +3,12 @@ title: Start
 layout: main
 ---
 
-<div class="grid__wrapper" id="fadein">
-  {% for icon in site.data.icons %}
-    <div class="icon__wrapper grid__item grid__item--{{ site.data.icons | size }}up">
-      <a href="{{ icon.url }}" class="icon__item">
-        <img alt="{{ icon.name }}" src="{{ icon.icon }}">
-      </a>
-    </div>
+<div class="grid__wrapper grid__wrapper--{{ site.data.newIcons | size }}up anim-fadein">
+  {% for icon in site.data.newIcons %}
+  <div class="icon__wrapper grid__item">
+    <a href="{{ icon.url }}" class="icon__item">
+      <img alt="{{ icon.name }}" src="{{ icon.icon }}" />
+    </a>
+  </div>
   {% endfor %}
 </div>
-
-<script>
-    window.onload = function () {
-        document.getElementById('fadein').className += ' anim-fadein';
-    };
-</script>

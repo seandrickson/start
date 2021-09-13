@@ -1,0 +1,9 @@
+theme: null
+exclude:
+  - .bundle
+  - Gemfile*
+  - README.md
+  - node_modules
+  - package*.json
+sass:
+  style: compressed

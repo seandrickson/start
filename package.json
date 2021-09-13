@@ -1,0 +1,24 @@
+{
+  "name": "start",
+  "version": "1.0.0",
+  "description": "## Personal custom start page",
+  "main": "_src/icons.mjs",
+  "scripts": {
+    "icons": "node _src/icons.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seandrickson/start.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seandrickson/start/issues"
+  },
+  "homepage": "https://github.com/seandrickson/start#readme",
+  "devDependencies": {
+    "node-fetch": "^3.0.0",
+    "yaml": "^1.10.2"
+  }
+}
