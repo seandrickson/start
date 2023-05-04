@@ -19,6 +19,6 @@
   "homepage": "https://github.com/seandrickson/start#readme",
   "devDependencies": {
     "node-fetch": "^3.1.1",
-    "yaml": "^1.10.2"
+    "yaml": "^2.2.2"
   }
 }
